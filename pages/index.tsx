@@ -7,14 +7,16 @@ import { useFormContext } from "src/context/useFormContext";
 
 const App = () => {
   const { formData } = useFormContext();
-  const { banner, logo, nameRestaurant, number, description } = formData;
+  const { banner, logo, nameRestaurant, instagram, description, whatsapp } =
+    formData;
 
   useEffect(() => {
     const dataEditable = {
       banner,
       logo,
       nameRestaurant,
-      number,
+      whatsapp,
+      instagram,
       description,
     };
 
@@ -23,7 +25,7 @@ const App = () => {
     }
 
     return localStorage.setItem("dataEditable", JSON.stringify(dataEditable));
-  }, [banner, logo, number, nameRestaurant, description]);
+  }, [banner, logo, whatsapp, nameRestaurant, description, instagram]);
 
   return (
     <Layout>
