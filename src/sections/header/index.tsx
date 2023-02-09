@@ -1,55 +1,55 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
 //styles
-import * as S from "./styled";
+import * as S from './styled';
 
 //component
-import { Modal } from "src/components/Modal";
+import { Modal } from 'src/components/Modal';
 
 //context
-import { useFormContext } from "src/context/useFormContext";
-import Router from "next/router";
+import { useFormContext } from 'src/context/useFormContext';
+import Router from 'next/router';
 
 export const Header = () => {
-  const { formData } = useFormContext();
-  const [showModal, setShowModal] = useState(false);
-  const [showSaveOrCancelButtons, setShowSaveOrCancelButtons] = useState(false);
+	const { formData } = useFormContext();
+	const [showModal, setShowModal] = useState(false);
+	const [showSaveOrCancelButtons, setShowSaveOrCancelButtons] = useState(false);
 
-  const handleClickModal = () => {
-    setShowModal(!showModal);
-    setShowSaveOrCancelButtons(true);
-  };
+	const handleClickModal = () => {
+		setShowModal(!showModal);
+		setShowSaveOrCancelButtons(true);
+	};
 
-  const handleClickCancelEdit = () => {
-    Router.reload();
-  };
+	const handleClickCancelEdit = () => {
+		Router.reload();
+	};
 
-  const handleClickSaveEdit = () => {
-    setShowSaveOrCancelButtons(false);
-    localStorage.setItem("dataEditable", JSON.stringify(formData));
-  };
+	const handleClickSaveEdit = () => {
+		setShowSaveOrCancelButtons(false);
+		localStorage.setItem('dataEditable', JSON.stringify(formData));
+	};
 
-  return (
-    <>
-      {showModal && <Modal handleClickClose={handleClickModal} />}
-      <S.Wrapper>
-        <S.ContentEdit>
-          {showSaveOrCancelButtons ? (
-            <>
-              <S.DeleteEdit onClick={handleClickCancelEdit}>
-                Cancelar Alterações
-              </S.DeleteEdit>
-              <S.SaveEdit onClick={handleClickSaveEdit}>
-                Salvar Alterações
-              </S.SaveEdit>
-            </>
-          ) : (
-            <S.OptionEdit onClick={handleClickModal}>
-              Editar Informações
-            </S.OptionEdit>
-          )}
-        </S.ContentEdit>
-      </S.Wrapper>
-    </>
-  );
+	return (
+		<>
+			{showModal && <Modal handleClickClose={handleClickModal} />}
+			<S.Wrapper>
+				<S.ContentEdit>
+					{showSaveOrCancelButtons ? (
+						<>
+							<S.DeleteEdit onClick={handleClickCancelEdit}>
+								Cancelar Alterações
+							</S.DeleteEdit>
+							<S.SaveEdit onClick={handleClickSaveEdit}>
+								Salvar Alterações
+							</S.SaveEdit>
+						</>
+					) : (
+						<S.OptionEdit onClick={handleClickModal}>
+							Editar Informações
+						</S.OptionEdit>
+					)}
+				</S.ContentEdit>
+			</S.Wrapper>
+		</>
+	);
 };
