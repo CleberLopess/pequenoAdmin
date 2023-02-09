@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
+
+//sections
 import { Layout } from "src/components/Layout";
-import { Header } from "@/src/sections/header";
-import { HeroBanner } from "@/src/sections/heroBanner";
-import { ContentRestaurant } from "@/src/sections/content";
+import { Header } from "src/sections/header";
+import { HeroBanner } from "src/sections/heroBanner";
+import { ContentRestaurant } from "src/sections/content";
+import { Footer } from "src/sections/footer";
+
+//context
 import { useFormContext } from "src/context/useFormContext";
 
 const App = () => {
@@ -32,6 +37,7 @@ const App = () => {
       <Header />
       <HeroBanner />
       <ContentRestaurant />
+      <Footer />
     </Layout>
   );
 };

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   background-color: #fefefe;
   z-index: 1;
   width: 100%;

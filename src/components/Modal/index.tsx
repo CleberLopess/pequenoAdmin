@@ -11,9 +11,10 @@ import { IFormTypes } from "interface/context/form";
 
 export const Modal = ({ handleClickClose }: IModal) => {
   const dataLocal = localStorage.getItem("dataEditable");
-  const parse = JSON.parse(dataLocal!);
+  const parse: IFormTypes = JSON.parse(dataLocal!);
   const { setFormData, formData } = useFormContext();
-  const { banner, logo, description, nameRestaurant, whatsapp } = formData;
+  const { banner, logo, description, nameRestaurant, whatsapp, instagram } =
+    formData;
 
   const methods = useForm<IFormTypes>({
     mode: "onChange",
@@ -21,7 +22,7 @@ export const Modal = ({ handleClickClose }: IModal) => {
       banner: parse?.banner ?? banner,
       logo: parse?.logo ?? logo,
       nameRestaurant: parse?.nameRestaurant ?? nameRestaurant,
-      instagram: parse?.whatsapp ?? whatsapp,
+      instagram: parse?.instagram ?? instagram,
       whatsapp: parse?.whatsapp ?? whatsapp,
       description: parse?.description ?? description,
     },

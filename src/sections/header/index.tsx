@@ -8,6 +8,7 @@ import { Modal } from "src/components/Modal";
 
 //context
 import { useFormContext } from "src/context/useFormContext";
+import Router from "next/router";
 
 export const Header = () => {
   const { formData } = useFormContext();
@@ -20,7 +21,7 @@ export const Header = () => {
   };
 
   const handleClickCancelEdit = () => {
-    location.reload();
+    Router.reload();
   };
 
   const handleClickSaveEdit = () => {

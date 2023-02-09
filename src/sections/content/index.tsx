@@ -7,18 +7,18 @@ import * as S from "./styled";
 import { useFormContext } from "src/context/useFormContext";
 
 //interface
-import { ILocalStorage } from "interface/localStorage";
+import { IFormTypes } from "interface/context/form";
 
 export const ContentRestaurant = () => {
   const { formData } = useFormContext();
   const { nameRestaurant, instagram, whatsapp, description } = formData;
 
-  const [dataLocalStorage, setDataLocalStorage] = useState<ILocalStorage>();
+  const [dataLocalStorage, setDataLocalStorage] = useState<IFormTypes>();
 
   useEffect(() => {
     if (localStorage) {
       const dataLocal = localStorage.getItem("dataEditable");
-      const parse = JSON.parse(dataLocal!);
+      const parse: IFormTypes = JSON.parse(dataLocal!);
 
       setDataLocalStorage(parse);
     }

@@ -7,18 +7,18 @@ import { useFormContext } from "src/context/useFormContext";
 import * as S from "./styled";
 
 //interface
-import { ILocalStorage } from "@/interface/localStorage";
+import { IFormTypes } from "interface/context/form";
 
 export const HeroBanner = () => {
   const { formData } = useFormContext();
   const { banner, logo } = formData;
 
-  const [dataLocalStorage, setDataLocalStorage] = useState<ILocalStorage>();
+  const [dataLocalStorage, setDataLocalStorage] = useState<IFormTypes>();
 
   useEffect(() => {
     if (localStorage) {
       const dataLocal = localStorage.getItem("dataEditable");
-      const parse = JSON.parse(dataLocal!);
+      const parse: IFormTypes = JSON.parse(dataLocal!);
 
       setDataLocalStorage(parse);
     }
