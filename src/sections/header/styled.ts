@@ -18,13 +18,33 @@ export const ContentEdit = styled.div`
   align-items: center;
   justify-content: right;
 `;
-export const OptionEdit = styled.button`
-  background-color: #a5acfd;
+
+export const DeleteEdit = styled.button`
   display: flex;
   align-items: center;
-  padding: 5px;
-  border-radius: 5px;
-  margin-right: 10px;
+  background-color: #f46666;
+
+  &:hover {
+    background-color: #b41616;
+    color: #ffff;
+  }
+`;
+
+export const SaveEdit = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: #42e942;
+
+  &:hover {
+    background-color: #099709;
+    color: #ffff;
+  }
+`;
+
+export const OptionEdit = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: #a5acfd;
 
   &:hover {
     background-color: #858bd1;
